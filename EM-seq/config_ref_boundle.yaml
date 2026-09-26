@@ -1,0 +1,10 @@
+# ── Pipeline configuration ────────────────────────────────────────────────────
+# Edit work_dir before running; all output goes under it.
+
+samples_csv: "/work_dir/master_samples_input.csv"    # generate with: python make_samples_csv.py --input master_T1_reorg_Sep2026.txt --output samples_T1.csv
+
+work_dir: "/work_dir"   # ← set your HPC work path
+
+ref_genome:       "/resources/bwa-mem3_hg38_ref_build/genome.fa"
+ref_bundle:       "/resources/bwa-mem3_hg38_ref_build"
+ref_methyldackel: "/resources/seqs_for_alignment_pipelines/genome.fa"

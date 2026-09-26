@@ -1,0 +1,5 @@
+sample	lane	flowcell	R1	R2
+SAMPLE_A_T1	L001	FLOWCELL01	/path/to/fastq/SAMPLE_A_T1_L001_R1.fastq.gz	/path/to/fastq/SAMPLE_A_T1_L001_R2.fastq.gz
+SAMPLE_B_T1	L001	FLOWCELL02	/path/to/fastq/SAMPLE_B_T1_L001_R1.fastq.gz	/path/to/fastq/SAMPLE_B_T1_L001_R2.fastq.gz
+SAMPLE_B_T1	L002	FLOWCELL02	/path/to/fastq/SAMPLE_B_T1_L002_R1.fastq.gz	/path/to/fastq/SAMPLE_B_T1_L002_R2.fastq.gz
+SAMPLE_B_T1	L003	FLOWCELL02	/path/to/fastq/SAMPLE_B_T1_L003_R1.fastq.gz	/path/to/fastq/SAMPLE_B_T1_L003_R2.fastq.gz

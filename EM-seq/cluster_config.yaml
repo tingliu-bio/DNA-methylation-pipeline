@@ -1,0 +1,56 @@
+# SLURM resource defaults per rule
+# Submit with:
+#   snakemake --jobs 50 \
+#     --cluster "sbatch -p {cluster.partition} -c {threads} --mem={cluster.mem} \
+#                -t {cluster.time} {cluster.extra} \
+#                -o logs/slurm/%x_%j.out -e logs/slurm/%x_%j.err" \
+#     --cluster-config cluster.yaml \
+#     --latency-wait 60 --rerun-incomplete
+
+__default__:
+    partition: himem
+    mem:       "16G"
+    time:      "1-00:00"
+    extra:     ""
+
+trim_galore:
+    partition: himem
+    mem:       "16G"
+    time:      "12:00:00"
+    extra:     ""
+
+bwa_mem3:
+    partition: himem
+    mem:       "60G"
+    time:      "2-00:00"
+    extra:     "--constraint=avx2"      # required by bwa-mem3
+
+merge_bam:
+    partition: himem
+    mem:       "16G"
+    time:      "4:00:00"
+    extra:     ""
+
+mark_nonconverted:
+    partition: himem
+    mem:       "32G"
+    time:      "6:00:00"
+    extra:     ""
+
+markdup:
+    partition: himem
+    mem:       "60G"
+    time:      "1-00:00"
+    extra:     ""
+
+bam_qc:
+    partition: himem
+    mem:       "8G"
+    time:      "2:00:00"
+    extra:     ""
+
+methyldackel:
+    partition: himem
+    mem:       "46G"
+    time:      "1-00:00"
+    extra:     ""
