@@ -1,4 +1,4 @@
-# EM-seq Pipeline (bwa-mem3 / hg38)
+# EM-seq Pipeline (bwa-mem3)
 
 This repo documents a Snakemake-based pipeline for processing Enzymatic Methyl-seq (EM-seq) whole-genome bisulfite sequencing data, using `bwa-mem3` with methylation-aware alignment. The pipeline handles multi-lane paired-end samples on a SLURM HPC cluster.
 
@@ -38,13 +38,12 @@ FASTQ (per lane)
 
 ## 0. Build Reference Index
 
-Before the first run, build the methylation-aware bwa-mem3 index. This step is only needed once per reference genome and requires a high-memory node (~150 GB) with AVX2 support.
+Before the first run, build the methylation-aware bwa-mem3 hg38 human reference index. This step is only needed once per reference genome and requires a high-memory node (~150 GB) with AVX2 support.
 
 The script runs:
 ```bash
 bwa-mem3 index --meth --max-memory 150G genome.fa
 ```
-
 > **Note:** The `--constraint=avx2` SLURM flag is required — bwa-mem3 will fail on nodes without AVX2 support.
 
 ---
