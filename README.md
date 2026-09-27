@@ -1,6 +1,7 @@
 # EM-seq Data Processing Workflow
 
-This repo documents a Snakemake-based pipeline for processing Enzymatic Methyl-seq (EM-seq) whole-genome bisulfite sequencing data, using bwa-mem3 with a methylation-aware hg38 reference bundle to preserve per-site methylation state. The pipeline handles multi-lane paired-end samples on a SLURM HPC cluster.
+This repo documents a Snakemake-based pipeline for processing Enzymatic Methyl-seq (EM-seq) whole-genome bisulfite sequencing data, using `bwa-mem3` with a methylation-aware hg38 reference bundle to preserve per-site methylation state. The pipeline handles multi-lane paired-end samples on a SLURM HPC cluster.
+
 ---
 
 ## Overview
