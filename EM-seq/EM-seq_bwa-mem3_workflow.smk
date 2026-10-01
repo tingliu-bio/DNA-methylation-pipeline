@@ -140,6 +140,7 @@ rule markdup:
     shell:
         """
         module load samtools/1.20
+        module load sambamba/0.7.0
         mkdir -p {WORK_DIR}/tmp
         sambamba markdup \
             --nthreads {threads} \
