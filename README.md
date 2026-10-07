@@ -66,7 +66,7 @@ Multiple lanes per sample are merged automatically at step 3.
 
 ## 2. Configuration
 
-Edit `config.yaml` before running:
+Edit `config_ref_boundle.yaml` before running:
 
 ```yaml
 samples_csv:      "/path/to/master_samples_input.csv"
@@ -81,10 +81,19 @@ ref_methyldackel: "/path/to/hg38/genome.fa"                # FASTA for MethylDac
 ## 3. Running the Pipeline
 
 ```bash
-sbatch submit_smk_sbatch.sh
+snakemake --snakefile EM-seq_bwa-mem3_workflow.smk \
+    --configfile config_ref_boundle.yaml \
+    --cluster-config cluster_config.yaml \
+    --jobs 60 \
+    --cluster "sbatch -p {cluster.partition} -c {threads} --mem={cluster.mem} \
+               -t {cluster.time} {cluster.extra} \
+               -o logs/slurm/%x_%j.out -e logs/slurm/%x_%j.err" \
+    --latency-wait 60 \
+    --rerun-incomplete
+
 ```
 
-This submits the Snakemake master job, which then dispatches up to 120 concurrent SLURM jobs via `cluster.yaml`.
+This submits the Snakemake master job, which then dispatches up to 60 concurrent SLURM jobs via `cluster_config.yaml`.
 
 ---
 
