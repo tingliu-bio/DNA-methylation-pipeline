@@ -99,7 +99,7 @@ rule bwa_mem3:
 # ── 3. Merge lane BAMs ────────────────────────────────────────────────────────
 rule merge_bam:
     input:  lane_bams
-    output: temp(f"{WORK_DIR}/BWA/{{sample}}.merged.bam")   # ← 加 temp()
+    output: temp(f"{WORK_DIR}/BWA/{{sample}}.merged.bam")   # <- added temp() to save the space
     log:    f"{WORK_DIR}/logs/merge/{{sample}}.log"
     threads: 4
     shell:
@@ -148,6 +148,8 @@ rule markdup:
             --overflow-list-size 2000000 \
             {input.bam} {output.bam} > {log} 2>&1
         samtools index {output.bam} >> {log} 2>&1
+        samtools quickcheck {output} >> {log} 2>&1 && \
+            echo "[SUCCESS] merge_bam completed: {output}" >> {log}
         """
 
 # ── 6. BAM QC ────────────────────────────────────────────────────────
