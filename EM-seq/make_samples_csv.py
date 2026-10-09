@@ -10,7 +10,7 @@ R2 path is derived by replacing '_R1.fastq.gz' with '_R2.fastq.gz'.
 
 Input format (tab-separated, with header):
     Patient_ID  Time_Point  hpc_path_R1  [source_batch]
-    LIB-15-0029 T3          /cluster/.../..._A225FC7LT3_1_CTGTACCA-AGTCTGTG_R1.fastq.gz
+    SAMPLE_A_T1 T1          /cluster/.../..._A225FC7LT3_1_CTGTACCA-AGTCTGTG_R1.fastq.gz
 
 Output: samples.csv
     sample, lane, flowcell, R1, R2
